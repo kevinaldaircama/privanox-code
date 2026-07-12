@@ -15,7 +15,7 @@ const (
 	// CurrentVersion indica la versión actual en ejecución
 	CurrentVersion = "7.9"
 	// RemoteVersionURL es el archivo en GitHub que dice la última versión disponible
-	RemoteVersionURL = "https://raw.githubusercontent.com/Depwisescript/BOT-TELEGRAM-VPN/main/version.txt"
+	RemoteVersionURL = "https://raw.githubusercontent.com/kevinaldaircama/privanox-code/main/version.txt"
 )
 
 // CheckForUpdate verifica si hay una actualización disponible comparando la versión local con la remota.
