@@ -27,8 +27,8 @@ var enStrings = map[string]string{
 		"🛠️ <b>NEED A CUSTOM SCRIPT?</b>\n" +
 		"We develop custom bots and tools for your project.\n" +
 		"━━━━━━━━━━━━━━\n" +
-		"📢 <b>Official Channel:</b> @Depwise2\n" +
-		"👤 <b>Support / Sales:</b> @Dan3651",
+		"📢 <b>Official Channel:</b> @vpn_privanox\n" +
+		"👤 <b>Support / Sales:</b> @KTTOFICIAL",
 
 	// ===== Main Menu Buttons =====
 	"btn.create_ssh":   "👤 Create SSH",
