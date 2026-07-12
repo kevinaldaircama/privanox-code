@@ -67,7 +67,7 @@ install_bot() {
     # 3. Clonar y Compilar Proyecto Repo
     log_info "Descargando y compilando el Bot en Go..."
     cd /tmp
-    rm -rf BOT-TELEGRAM-VPN
+    rm -rf privanox-code
     git clone https://github.com/kevinaldaircama/privanox-code.git || { log_error "Error al descargar el bot."; exit 1; }
     cd privanox-code
 
@@ -76,7 +76,7 @@ install_bot() {
 
     go build -o /usr/local/bin/depwise-bot cmd/depwise/main.go
     chmod +x /usr/local/bin/depwise-bot
-    rm -rf /tmp/BOT-TELEGRAM-VPN
+    rm -rf /tmp/privanox-code
     cd ~
 
     # 3.5 Compilar BadVPN nativamente (Asegura compatibilidad con ARM64/AMD64)
