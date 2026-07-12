@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/bot"
+	"github.com/kevinaldaircama/privanox-code/internal/bot"
 )
 
 func main() {
