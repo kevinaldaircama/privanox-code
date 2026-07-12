@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/db"
+	"github.com/kevinaldaircama/privanox-code/internal/db"
 )
 
 var translations = map[string]map[string]string{
