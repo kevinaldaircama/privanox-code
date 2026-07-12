@@ -11,7 +11,7 @@ var esStrings = map[string]string{
 	"mid.banned_msg":   "🚫 <b>ESTÁS BANEADO</b>\n\nMotivo: <i>%s</i>",
 
 	// ===== Main Menu =====
-	"main.title":       "💎 <b>BOT TELEGRAM DEPWISE V8.0.5 (GO EDITION)</b>\n",
+	"main.title":       "💎 <b>BOT TELEGRAM PRIVANOX VPN</b>\n",
 	"main.subtitle":    "<i>Panel de Control Avanzado</i>\n\n",
 	"main.cpu":         "🧠 <b>CPU:</b> [%s] <code>%.1f%%</code> (%d Cores)\n",
 	"main.ram":         "💾 <b>RAM:</b> [%s] <code>%dMB / %dMB</code>\n",
