@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/db"
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/sys"
+	"github.com/kevinaldaircama/privanox-code/internal/db"
+	"github.com/kevinaldaircama/privanox-code/internal/sys"
 	tele "gopkg.in/telebot.v3"
 )
 
@@ -307,13 +307,7 @@ func handleEditCloudfrontPrompt(c tele.Context, b *tele.Bot) error {
 const defaultBanner = `<html>
 <h5 style="text-align:center;">
 <font face="monospace" color="#00ff00">
-⠀⠀⢀⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣶⡀⠀⠀
-⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀
-⠀⠀⢸⣿⡇⠀⠀⠀⣠⣶⣄⠀⠀⠀⢸⣿⡇⠀⠀
-⠀⠀⢸⣿⡇⠀⠀⢰⣿⣿⣿⡆⠀⠀⢸⣿⡇⠀⠀
-⠀⠀⠈⣿⣿⡄⢀⣿⣿⠻⣿⣿⡀⢠⣿⣿⠁⠀⠀
-⠀⠀⠀⠹⣿⣿⣾⣿⡏⠀⢹⣿⣷⣿⣿⠏⠀⠀⠀
-⠀⠀⠀⠀⠙⢿⣿⡿⠀⠀⠀⢿⣿⡿⠋⠀⠀⠀⠀
+⠀KEVIN TECH TUTORIALS⠀⠀
 </font>
 </h5>
 <h1 style="text-align:center;">
@@ -329,7 +323,7 @@ const defaultBanner = `<html>
 <font color='#ffffff'>Canal: </font><a href="https://t.me/Depwise2"><font color='#f1c40f'>@Depwise2</font></a>
 </h5>
 <h4 style="text-align:center;">
-<font color='#FF00FF'><b>🔥 ¡SE VENDEN SERVIDORES PREMIUM 35 DÍAS A 8.5 SOLES! 🔥</b></font>
+<font color='#FF00FF'><b>🔥 ¡SE VENDEN SERVIDORES PREMIUM 30 DÍAS A 15 SOLES! 🔥</b></font>
 </h4>
 <h5 style="text-align:center;">
 <font color='#ff0000'>==============================</font>
@@ -344,7 +338,7 @@ const defaultBanner = `<html>
 <font color='#ff5252'><i>El incumplimiento genera ban automático</i></font>
 </h6>
 <h5 style="text-align:center;">
-<font color='#00e676'><b>CREADO EN : @Depwise_bot</b></font>
+<font color='#00e676'><b>CREADO EN : @sshprivanoxbot</b></font>
 </h5>
 </html>`
 
@@ -385,17 +379,17 @@ func handleEditPromoMenu(c tele.Context, b *tele.Bot) error {
 		promoText = data.BannerPromoText
 	}
 
-	promoChannel := "@Depwise2"
+	promoChannel := "@vpn_privanox"
 	if data.BannerPromoChannel != "" {
 		promoChannel = data.BannerPromoChannel
 	}
 
-	promoSupport := "@Dan3651"
+	promoSupport := "@KTTOFICIAL"
 	if data.BannerPromoSupport != "" {
 		promoSupport = data.BannerPromoSupport
 	}
 
-	promoBotName := "@Depwise_bot"
+	promoBotName := "@sshprivanoxbot"
 	if data.BannerPromoBotName != "" {
 		promoBotName = data.BannerPromoBotName
 	}
