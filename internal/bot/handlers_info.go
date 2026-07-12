@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/db"
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/i18n"
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/sys"
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/vpn"
+	"github.com/kevinaldaircama/privanox-code/internal/db"
+	"github.com/kevinaldaircama/privanox-code/internal/i18n"
+	"github.com/kevinaldaircama/privanox-code/internal/sys"
+	"github.com/kevinaldaircama/privanox-code/internal/vpn"
 	tele "gopkg.in/telebot.v3"
 )
 
