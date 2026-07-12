@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/db"
+	"github.com/kevinaldaircama/privanox-code/internal/db"
 )
 
 const (
@@ -27,22 +27,22 @@ func GenerateUserBanner(username, title string, limit int, expireDate string, da
 		title = "INTERNET ILIMITADO"
 	}
 
-	promoText := "🔥 ¡SERVIDORES PREMIUM A 8.5 SOLES! 🔥"
+	promoText := "🔥 ¡SERVIDORES PREMIUM! 🔥"
 	if data != nil && data.BannerPromoText != "" {
 		promoText = data.BannerPromoText
 	}
 
-	promoChannel := "@Depwise2"
+	promoChannel := "@vpn_privanox"
 	if data != nil && data.BannerPromoChannel != "" {
 		promoChannel = data.BannerPromoChannel
 	}
 
-	promoSupport := "@Dan3651"
+	promoSupport := "@KTTOFICIAL"
 	if data != nil && data.BannerPromoSupport != "" {
 		promoSupport = data.BannerPromoSupport
 	}
 
-	promoBotName := "@Depwise_bot"
+	promoBotName := "@sshprivanoxbot"
 	if data != nil && data.BannerPromoBotName != "" {
 		promoBotName = data.BannerPromoBotName
 	}
@@ -74,13 +74,7 @@ func GenerateUserBanner(username, title string, limit int, expireDate string, da
 	// Logo braille Depwise (probado y funcional en HTTP Injector)
 	b.WriteString("<h5 style=\"text-align:center;\">")
 	b.WriteString("<font face=\"monospace\" color=\"#00ff00\">")
-	b.WriteString("⠀⠀⢀⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣶⡀⠀⠀<br>")
-	b.WriteString("⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀<br>")
-	b.WriteString("⠀⠀⢸⣿⡇⠀⠀⠀⣠⣶⣄⠀⠀⠀⢸⣿⡇⠀⠀<br>")
-	b.WriteString("⠀⠀⢸⣿⡇⠀⠀⢰⣿⣿⣿⡆⠀⠀⢸⣿⡇⠀⠀<br>")
-	b.WriteString("⠀⠀⠈⣿⣿⡄⢀⣿⣿⠻⣿⣿⡀⢠⣿⣿⠁⠀⠀<br>")
-	b.WriteString("⠀⠀⠀⠹⣿⣿⣾⣿⡏⠀⢹⣿⣷⣿⣿⠏⠀⠀⠀<br>")
-	b.WriteString("⠀⠀⠀⠀⠙⢿⣿⡿⠀⠀⠀⢿⣿⡿⠋⠀⠀⠀⠀")
+	b.WriteString("⠀⠀⢀⣶⡆kevin tech tutorials⢰⣶⡀⠀⠀<br>")
 	b.WriteString("</font>")
 	b.WriteString("</h5>\n")
 
