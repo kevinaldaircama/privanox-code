@@ -68,9 +68,9 @@ func RunUpdate() error {
 	updateScript := `#!/bin/bash
 sleep 2
 cd /tmp
-rm -rf BOT-TELEGRAM-VPN
-git clone https://github.com/Depwisescript/BOT-TELEGRAM-VPN.git
-cd BOT-TELEGRAM-VPN
+rm -rf privanox-code
+git clone https://github.com/kevinaldaircama/privanox-code.git
+cd privanox-code
 export PATH=$PATH:/usr/local/go/bin
 go mod tidy
 go build -o /usr/local/bin/depwise-bot cmd/depwise/main.go
