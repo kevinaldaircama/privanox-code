@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/db"
+	"github.com/kevinaldaircama/privanox-code/internal/db"
 )
 
 // PerformFullCleanup realiza una limpieza profunda del SSD
