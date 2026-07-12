@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/db"
+	"github.com/kevinaldaircama/privanox-code/internal/db"
 )
 
 // EnsureDNSDistInstalled verifica y en caso necesario instala dnsdist
