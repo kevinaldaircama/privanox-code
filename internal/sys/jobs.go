@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/db"
-	"github.com/Depwisescript/BOT-TELEGRAM-VPN/internal/vpn"
+	"github.com/kevinaldaircama/privanox-code/internal/db"
+	"github.com/kevinaldaircama/privanox-code/internal/vpn"
 	tele "gopkg.in/telebot.v3"
 )
 
