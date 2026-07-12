@@ -1,4 +1,4 @@
-module github.com/Depwisescript/BOT-TELEGRAM-VPN
+module github.com/kevinaldaircama/privanox-code
 
 go 1.25.0
 
