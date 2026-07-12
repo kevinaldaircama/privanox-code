@@ -69,7 +69,7 @@ install_bot() {
     cd /tmp
     rm -rf BOT-TELEGRAM-VPN
     git clone https://github.com/kevinaldaircama/privanox-code.git || { log_error "Error al descargar el bot."; exit 1; }
-    cd BOT-TELEGRAM-VPN
+    cd privanox-code
 
     log_info "Descargando módulos necesarios..."
     go mod tidy
