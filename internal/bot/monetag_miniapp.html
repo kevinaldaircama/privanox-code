@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Ad</title>
+    <!-- Telegram WebApp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <!-- Monetag SDK -->
+    <script src='//libtl.com/sdk.js' data-zone='11209533' data-sdk='show_11209533'></script>
+
+    <style>
+        body {
+            background-color: var(--tg-theme-bg-color, #18222d);
+            color: var(--tg-theme-text-color, #ffffff);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        h2 { font-size: 20px; margin-bottom: 10px;}
+        p { font-size: 14px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div id="loading" style="display:flex; flex-direction:column; align-items:center;">
+        <h2>Patrocinador Monetag</h2>
+        <p>Para usar este servicio gratis, apóyanos viendo este corto anuncio.</p>
+        <button id="playBtn" style="padding: 15px 30px; background-color: #2ea6ff; color: white; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+            ▶️ Ver Anuncio para Continuar
+        </button>
+    </div>
+
+    <div id="error-msg" style="display:none; color: #ff5252; margin-top: 20px;">
+        <h2>¡Ups!</h2>
+        <p>Hubo un problema al cargar el anuncio (o Monetag no tiene anuncios para tu país en este momento).</p>
+        <button onclick="sendSuccessAndClose()" style="padding: 12px 24px; background-color: #4caf50; color: white; border: none; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: bold; margin-top: 15px;">
+            Continuar de todos modos
+        </button>
+    </div>
+
+    <div style="margin-top: 40px; font-size: 12px; opacity: 0.6;">
+        <p>Canal oficial: <a href="https://t.me/Depwise2" style="color: #2ea6ff; text-decoration: none;">@Depwise2</a></p>
+        <p>Desarrollado por <a href="https://t.me/Dan3651" style="color: #2ea6ff; text-decoration: none;">@Dan3651</a></p>
+    </div>
+
+    <script>
+        // Inicializar Telegram WebApp
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+
+        function sendSuccessAndClose() {
+            window.Telegram.WebApp.openTelegramLink("https://t.me/Depwise_bot?start=adcompleted");
+            window.Telegram.WebApp.close();
+        }
+
+        function showError() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("error-msg").style.display = "block";
+        }
+
+        document.getElementById("playBtn").addEventListener("click", () => {
+            const btn = document.getElementById("playBtn");
+            btn.innerText = "Cargando anuncio...";
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+
+            // Monetag Ad Function
+            if (typeof show_11209533 === "function") {
+                show_11209533().then(() => {
+                    // El usuario vio el video con éxito
+                    btn.innerText = "¡Completado!";
+                    sendSuccessAndClose();
+                }).catch(() => {
+                    // Hubo un error, el usuario saltó el video, o no hay anuncios
+                    showError();
+                });
+            } else {
+                showError();
+            }
+        });
+    </script>
+</body>
+</html>

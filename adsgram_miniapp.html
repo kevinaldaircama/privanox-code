@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Ad</title>
+    <!-- Telegram WebApp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Adsgram SDK -->
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+    <style>
+        body {
+            background-color: var(--tg-theme-bg-color, #18222d);
+            color: var(--tg-theme-text-color, #ffffff);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        .loader {
+            border: 4px solid var(--tg-theme-secondary-bg-color, #232e3c);
+            border-top: 4px solid var(--tg-theme-button-color, #2ea6ff);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h2 { font-size: 20px; margin-bottom: 10px;}
+        p { font-size: 14px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div id="loading" style="display:flex; flex-direction:column; align-items:center;">
+        <h2>Patrocinador Adsgram</h2>
+        <p>Para crear tu cuenta gratis, apóyanos viendo este corto anuncio.</p>
+        <button id="playBtn" style="padding: 15px 30px; background-color: #2ea6ff; color: white; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+            ▶️ Ver Anuncio para Continuar
+        </button>
+    </div>
+
+    <div id="error-msg" style="display:none; color: #ff5252; margin-top: 20px;">
+        <h2>¡Ups!</h2>
+        <p>Hubo un problema al cargar el anuncio (o Adsgram aún no tiene anuncios para tu país en este momento).</p>
+        <button onclick="sendSuccessAndClose()" style="padding: 12px 24px; background-color: #4caf50; color: white; border: none; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: bold; margin-top: 15px;">
+            Continuar de todos modos
+        </button>
+    </div>
+
+    <script>
+        // Inicializar Telegram WebApp
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const blockId = urlParams.get('blockId') || "36350";
+
+        const AdController = window.Adsgram.init({ blockId: blockId });
+
+        function sendSuccessAndClose() {
+            window.Telegram.WebApp.openTelegramLink("https://t.me/Depwise_bot?start=adcompleted");
+            window.Telegram.WebApp.close();
+        }
+
+        function showError() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("error-msg").style.display = "block";
+        }
+
+        function sendErrorAndClose() {
+            window.Telegram.WebApp.openTelegramLink("https://t.me/Depwise_bot?start=aderror");
+            window.Telegram.WebApp.close();
+        }
+
+        document.getElementById("playBtn").addEventListener("click", () => {
+            const btn = document.getElementById("playBtn");
+            btn.innerText = "Cargando anuncio...";
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+
+            AdController.show().then((result) => {
+                // El usuario vio el video con éxito
+                btn.innerText = "¡Completado!";
+                sendSuccessAndClose();
+            }).catch((result) => {
+                // Hubo un error, el usuario saltó el video, o no hay anuncios
+                showError();
+            });
+        });
+    </script>
+</body>
+</html>
