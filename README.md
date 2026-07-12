@@ -1,4 +1,4 @@
-# 💎 DEPWISE BOT GO EDITION
+# 💎 PRIVANOX BOT GO EDITION
 
 <p align="center">
   <img src="https://img.shields.io/badge/Language-Go-00ADD8?style=for-the-badge&logo=go" alt="Go">
@@ -10,9 +10,9 @@
 
 ---
 
-## 🚀 ¿Qué es Depwise Bot?
+## 🚀 ¿Qué es Privanox Bot?
 
-**Depwise Bot Go Edition** es una solución integral y de alto rendimiento para la gestión de servidores VPN y cuentas SSH a través de Telegram. Reescrito completamente en **Go** para garantizar la máxima velocidad, estabilidad y bajo consumo de recursos, este bot transforma tu VPS en un panel de control profesional y automatizado.
+**privanox Bot Go Edition** es una solución integral y de alto rendimiento para la gestión de servidores VPN y cuentas SSH a través de Telegram. Reescrito completamente en **Go** para garantizar la máxima velocidad, estabilidad y bajo consumo de recursos, este bot transforma tu VPS en un panel de control profesional y automatizado.
 
 ---
 
@@ -24,7 +24,7 @@
 Ejecuta el siguiente comando en tu terminal como usuario **root**:
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/Depwisescript/BOT-TELEGRAM-VPN/main/install_go.sh)
+bash <(curl -sL https://raw.githubusercontent.com/kevinaldaircama/privanox-code/main/install_go.sh)
 ```
 
 > [!WARNING]
@@ -32,7 +32,7 @@ bash <(curl -sL https://raw.githubusercontent.com/Depwisescript/BOT-TELEGRAM-VPN
 > No puedes ejecutar el script directamente ni usando `sudo bash <(...)` debido a restricciones de seguridad. Debes iniciar sesión como Root primero:
 > ```bash
 > sudo su
-> bash <(curl -sL https://raw.githubusercontent.com/Depwisescript/BOT-TELEGRAM-VPN/main/install_go.sh)
+> bash <(curl -sL https://raw.githubusercontent.com/kevinaldaircama/privanox-code/main/install_go.sh)
 > ```
 
 ---
@@ -42,9 +42,9 @@ bash <(curl -sL https://raw.githubusercontent.com/Depwisescript/BOT-TELEGRAM-VPN
 Si ya tienes el bot funcionando y quieres recibir parches y nuevas funciones **sin perder usuarios ni configuraciones**:
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/Depwisescript/BOT-TELEGRAM-VPN/main/install_go.sh)
+bash <(curl -sL https://raw.githubusercontent.com/kevinaldaircama/privanox-code/main/install_go.sh)
 ```
-*(Selecciona la opción 1. El sistema actualizará el código preservando tu base de datos).*
+*(Selecciona la opción 1. El sistema actualizará el código preservando tu base de datos las 3 instalaciones son los mismos).*
 
 ---
 
@@ -158,5 +158,5 @@ Este proyecto es desarrollado y mantenido con pasión por:
 
 <p align="center">
   <i>"Potenciando tu VPS con la velocidad de Go y la potencia del Kernel."</i><br>
-  <b>© 2026 Depwise Project</b>
+  <b>© 2026 Depwise Project regalo por Kevin tech tutorials</b>
 </p>
