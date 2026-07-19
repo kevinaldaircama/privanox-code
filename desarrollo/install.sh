@@ -24,7 +24,9 @@ PROJECT_DIR="/opt/depwise_bot"
 ENV_FILE="$PROJECT_DIR/.env"
 
 # --- CONFIGURACION PRIVADA ---
-FIREBASE_URL="https://keys-depwise-default-rtdb.firebaseio.com"
+FIREBASE_URL_B64="aHR0cHM6Ly9rZXlnZW5icHQtZGVmYXVsdC1ydGRiLmZpcmViYXNlaW8uY29t"
+FIREBASE_URL=$(echo "$FIREBASE_URL_B64" | base64 -d)
+
 # ----------------------------------------------------------
 
 install_bot() {
