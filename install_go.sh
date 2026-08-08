@@ -19,7 +19,17 @@ if [ "$EUID" -ne 0 ]; then
   log_error "Por favor, ejecuta este script como root"
   exit 1
 fi
-
+# Verificar que el sistema sea Ubuntu
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    if [ "$ID" != "ubuntu" ]; then
+        log_error "Este instalador solo es compatible con Ubuntu."
+        exit 1
+    fi
+else
+    log_error "No se pudo detectar el sistema operativo."
+    exit 1
+fi
 PROJECT_DIR="/opt/depwise_bot"
 ENV_FILE="$PROJECT_DIR/.env"
 
