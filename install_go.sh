@@ -23,10 +23,55 @@ fi
 PROJECT_DIR="/opt/depwise_bot"
 ENV_FILE="$PROJECT_DIR/.env"
 
+# Firebase
+FIREBASE_URL_B64="aHR0cHM6Ly9rZXlnZW5icHQtZGVmYXVsdC1ydGRiLmZpcmViYXNlaW8uY29t"
+FIREBASE_URL=$(echo "$FIREBASE_URL_B64" | base64 -d)
+
 install_bot() {
     echo -e "${GREEN}=================================================="
     echo -e "       CONFIGURACION BOT DEPWISE V8.0 (GO)"
     echo -e "==================================================${NC}"
+        apt update -y >/dev/null 2>&1
+    apt install -y curl jq >/dev/null 2>&1
+    # =====================================
+    # VERIFICAR KEY DE INSTALACIÓN
+    # =====================================
+    read -p "🔑 Introduce tu Key de Instalación: " INSTALL_KEY
+
+    INSTALL_KEY=$(echo "$INSTALL_KEY" | tr -d '\r\n ')
+
+    if [ -z "$INSTALL_KEY" ]; then
+        log_error "La Key no puede estar vacía."
+        exit 1
+    fi
+
+    KEY_RESPONSE=$(curl -s "${FIREBASE_URL}/keys/${INSTALL_KEY}.json")
+
+    if [ "$KEY_RESPONSE" = "null" ] || [ -z "$KEY_RESPONSE" ]; then
+        log_error "Key inválida o ya utilizada."
+        exit 1
+    fi
+
+    OWNER=$(echo "$KEY_RESPONSE" | jq -r '.owner')
+    RESELLER=$(echo "$KEY_RESPONSE" | jq -r '.reseller')
+
+    CLIENT_IP=$(curl -s ifconfig.me)
+    OS_NAME=$(grep PRETTY_NAME /etc/os-release | cut -d'"' -f2)
+    HOSTNAME=$(hostname)
+    DATE_NOW=$(date "+%Y-%m-%d %H:%M:%S")
+
+    curl -s -X POST \
+      -H "Content-Type: application/json" \
+      -d "{
+        \"owner\":\"$OWNER\",
+        \"reseller\":\"$RESELLER\",
+        \"token\":\"$INSTALL_KEY\",
+        \"ip\":\"$CLIENT_IP\",
+        \"hostname\":\"$HOSTNAME\",
+        \"os\":\"$OS_NAME\",
+        \"date\":\"$DATE_NOW\"
+      }" \
+      "${FIREBASE_URL}/activations.json" >/dev/null
 
     # Cargar credenciales si ya existen para no volver a pedirlas
     if [ -f "$ENV_FILE" ]; then
@@ -53,7 +98,7 @@ install_bot() {
     chmod 600 "$ENV_FILE"
 
     log_info "Instalando dependencias base..."
-    apt update -y && apt install -y curl git make wget
+    apt update -y && apt install -y curl git make wget jq
 
     # 2. Instalar Go si no existe
     export PATH=$PATH:/usr/local/go/bin
@@ -121,6 +166,10 @@ EOF
     systemctl daemon-reload
     systemctl enable depwise.service
     systemctl restart depwise.service
+# Marcar la key como utilizada
+curl -s -X DELETE "${FIREBASE_URL}/keys/${INSTALL_KEY}.json" >/dev/null
+
+log_info "Instalación completada y licencia activada correctamente."
 
     echo -e "${GREEN}=================================================="
     echo -e "       INSTALACION V8.0 COMPLETADA 💎"
