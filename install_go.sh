@@ -36,7 +36,9 @@ install_bot() {
     # =====================================
     # VERIFICAR KEY DE INSTALACIÓN
     # =====================================
+    if [ -z "${INSTALL_KEY:-}" ]; then
     read -p "🔑 Introduce tu Key de Instalación: " INSTALL_KEY
+fi
 
     INSTALL_KEY=$(echo "$INSTALL_KEY" | tr -d '\r\n ')
 
